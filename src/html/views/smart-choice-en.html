@@ -1,0 +1,14 @@
+<% var data = {
+  title: "Smart Choice",
+  author: "v.pancheliuha",
+  language: 'EN'
+}; %>
+<%= _.template(require('./../includes/EN/header-en.html'))(data) %>
+
+<main class="main-content" data-screen="1">
+  <%= _.template(require('./../includes/EN/initial-page-en.html'))(data) %>
+  <%= _.template(require('./../includes/EN/slider-page-en.html'))(data) %>
+  <%= _.template(require('./../includes/EN/contacts-page-en.html'))(data) %>
+</main>
+
+<%= _.template(require('./../includes/footer.html'))(data) %>

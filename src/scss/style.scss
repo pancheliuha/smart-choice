@@ -1,5 +1,5 @@
 $font-stack: -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
-
+@import "mixins";
 @import "~bootstrap/scss/bootstrap";
 
 @font-face {
@@ -9,14 +9,36 @@ $font-stack: -apple-system, BlinkMacSystemFont, Roboto, "Open Sans", "Helvetica 
   src: url(../fonts/Roboto-Regular.ttf);
 }
 
+html {
+  height: 100%;
+  @include phones() {
+    height: auto;
+  }
+}
+
+
 body {
   font-family: $font-stack;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  @include phones() {
+    height: auto;
+    overflow: visible;
+  }
+
   #logo {
     width: 10rem;
   }
-  .container {
-    img {
-      width: 20rem;
-    }
-  }
 }
+
+a:hover, a:active, a:focus {
+  text-decoration: none;
+}
+
+@import "header";
+@import "main";
+@import "slider-page";
+@import "contacts-page";
+@import "footer";

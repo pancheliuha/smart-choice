@@ -1,7 +1,9 @@
-import jQuery from "jquery";
-import popper from "popper.js";
-import bootstrap from "bootstrap";
+import $ from "jquery";
 
-jQuery(function() {
-  jQuery("body").css("color", "blue");
+import { menu } from './parts/menu';
+import { slider } from './parts/slider';
+
+$(function() {
+  menu();
+  slider();
 });

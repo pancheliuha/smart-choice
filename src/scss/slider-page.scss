@@ -1,0 +1,170 @@
+$slide-offset: 50px;
+
+.slider-page {
+  width: 100%;
+  height: 100vh;
+  padding: 74px 0 64px;
+
+  @include phones() {
+    padding: 0;
+    height: auto;
+  }
+
+  .slider-container {
+    padding-bottom: 30px;
+    padding-left: 25px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @include phones() {
+      padding: 0;
+      height: auto;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  .slide {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: calc(100% - 225px);
+    height: calc(100% - 30px);
+    box-shadow: 0 0 4px 0px rgba(189, 189, 189, 0.2);
+    transition: all .7s ease-out;
+
+    @include phones() {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      box-shadow: none;
+    }
+
+    &.hidden {
+      transform: translate(calc(100% + 200px));
+      transition: all .7s ease-in;
+    }
+
+    &.num-1 {
+      width: calc(100% - 225px - #{$slide-offset});
+      z-index: 1;
+    }
+
+    &.num-2 {
+      width: calc(100% - 225px - #{$slide-offset*2});
+      z-index: 2;
+    }
+
+    &.num-3 {
+      width: calc(100% - 225px - #{$slide-offset*3});
+      z-index: 3;
+    }
+
+    &.num-4 {
+      width: calc(100% - 225px - #{$slide-offset*4});
+      z-index: 4;
+    }
+
+    &.num-1,
+    &.num-2,
+    &.num-3,
+    &.num-4 {
+      @include phones() {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .slide-content {
+    position: absolute;
+    left: -200px;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    @include phones() {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vw;
+    }
+    
+    &.yellow { background-color: #e1c632; }
+    &.orange { background-color: #db9424; }
+    &.pink { background-color: #b71d85; }
+    &.blue { background-color: #5385bf; }
+    &.green { background-color: #86b37b; }
+
+    &.orange,
+    &.pink,
+    &.blue,
+    &.green {
+      .slide-item,
+      .slide-head {
+        color: #fff;
+      }
+    }
+  }
+
+  .slide-head {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 23px;
+    color: #595959;
+    margin-left: 13px;
+    max-width: 72%;
+    @include phones() {
+      font-size: 16px;
+    }
+  }
+
+  .slide-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-width: 64%;
+    margin-left: 20px;
+    @include phones() {
+      margin-left: 50px;
+    }
+  }
+
+  .slide-item {
+    font-size: 14px;
+    line-height: 18px;
+    color: #595959;
+    position: relative;
+    @include phones() {
+      font-size: 12px;
+      line-height: 16px;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 7px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #fff;
+      @include phones() {
+        width: 4px;
+        height: 4px;
+      }
+    }
+  }
+
+}
